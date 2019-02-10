@@ -76,7 +76,7 @@ def create_map(year, locations):
         return color
 
     geolocator = Photon()
-    fmap = folium.Map(location=[49, 24], zoom_start=5, )
+    fmap = folium.Map(location=[49, 24], zoom_start=5)
     fg_films = folium.FeatureGroup(name='Фільми на %i рік'%year)
     fg_pp = folium.FeatureGroup(name='Населення країн')
     fg_pp.add_child(folium.GeoJson(data=open('world.json', 'r',
@@ -130,7 +130,7 @@ def create_map(year, locations):
         except GeocoderTimedOut:
             errors += 1
     print('\n %i found, %i errors' % (i-errors, errors))
-    fmap.add_tile_layer(name='Mapbox Bright')
+    fmap.add_tile_layer(name='CartoDB', tiles='CartoDB')
     fmap.add_child(fg_pp)
     fmap.add_child(fg_films)
     fmap.add_child(folium.LayerControl())
