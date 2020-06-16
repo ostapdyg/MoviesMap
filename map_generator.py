@@ -6,13 +6,13 @@ def read_data(year):
     """
     print('Reading database...')
     with open('locations.list',
-              mode='r',
-              encoding='utf-8',
-              errors='ignore') as input_file:
+                  mode='r',
+                  encoding='utf-8',
+                  errors='ignore') as input_file:
         line = ''
         while not line.startswith('='):
             line = input_file.readline()
-        locations = dict()
+        locations = {}
         errors = 0
         i = 0
         films_num = 0

@@ -37,7 +37,7 @@ def main():
                                        else 'yellow'}))
     i = 0
     for i in range(50):
-        c = i*i*i
+        c = i**2 * i
         testmap.add_child(folium.CircleMarker(location=[i,i],
                                               popup=str(c)+get_color(c),
                                               radius=10,
